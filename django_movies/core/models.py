@@ -15,6 +15,16 @@ class Genre(models.Model):
 
     def __str__(self):
         return self.name
+
+class Director(models.Model):
+    name = models.CharField(max_length=20)
+    surname = models.CharField(max_length=20)
+
+    class Meta:
+        unique_together = ('name', 'surname')
+
+    def __str__(self):
+        return f"{self.name} {self.surname}"
     
 
 class Movie(models.Model):
@@ -26,6 +36,7 @@ class Movie(models.Model):
     description = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     genre = models.ForeignKey(Genre, null=True, on_delete=models.SET_NULL)
+    director = models.ForeignKey(Director, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f"{self.title} from {self.released}"
