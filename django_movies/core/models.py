@@ -38,6 +38,9 @@ class Movie(models.Model):
     genre = models.ForeignKey(Genre, null=True, on_delete=models.SET_NULL)
     director = models.ForeignKey(Director, null=True, on_delete=models.SET_NULL)
 
+    class Meta:
+        unique_together = ('title', 'released')
+
     def __str__(self):
         return f"{self.title} from {self.released}"
     
