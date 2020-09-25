@@ -1,12 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Welcome to Django Movies!</h1>
-    <ul>
-        {% for movie in movies %}
-        <li>
-            {{ movie.title}} ({{ movie.released.year}}) by {{ movie.director}}, genre: {{ movie.genre.name }}
-        </li>
+    <h1 class="mb-5">Welcome to Django Movies!</h1>
+    <ul class="list-group">
+        {% for movie in object_list %}
+            {% if movie.genre.age_limit != limits.adults %}
+                <li class="list-group-item" style="display:flex; justify-content: space-between;">
+                    {{ movie.title }} ({{ movie.released.year }}) - director: {{movie.director}}, genre: {{ movie.genre.name }}, age category: {{ movie.genre.get_age_limit_display }}
+                    <div>
+                        <button class="btn" style="padding:0; margin: 0;">
+                            <a class="update" href="/movie/update/{{movie.id}}" style="padding:0; margin: 0; width: 100%">
+                                🖊️
+                            </a>
+                        </button>
+                        <button class="btn" style="padding:0; margin: 0;">
+                            <a class="remove" href="/movie/update/{{movie.id}}" style="padding:0; margin: 0; width: 100%">
+                                ❌
+                            </a>
+                        </button>
+                    </div>
+                </li>
+            {% endif %}
         {% endfor %}
     </ul>
 {% endblock %}

@@ -1,0 +1,7 @@
+WARNING:core.views:Invalid data provided.
+INFO:core.views:Succesfully added Thor: Ragnarok
+WARNING:core.views:Invalid data provided.
+INFO:core.views:Succesfully added Thor: Ragnarok
+WARNING:django.request:Not Found: /movies
+WARNING:django.request:Not Found: /movie/list
+WARNING:django.request:Not Found: /list

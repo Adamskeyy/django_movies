@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% load movie_extras %}
+
+{% block content %}
+  <ul ul class="list-group">
+    {% for movie in object_list %}
+      <li class="list-group-item" style="display:flex; justify-content: space-between;">
+        {% movie_format movie short=True %}
+        <div>
+          <button class="btn" style="padding:0; margin: 0;">
+            <a class="update" href="{% url 'core:movie_detail' movie.pk %}" style="padding:0; margin: 0; width: 100%">
+              🔎
+            </a>
+          </button>
+          <button class="btn" style="padding:0; margin: 0;">
+            <a class="update" href="{% url 'core:movie_update' movie.pk %}" style="padding:0; margin: 0; width: 100%">
+              🖊️
+            </a>
+          </button>
+          <button class="btn" style="padding:0; margin: 0;">
+            <a class="remove" href="{% url 'core:movie_delete' movie.pk %}" style="padding:0; margin: 0; width: 100%">
+              ❌
+            </a>
+          </button>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
