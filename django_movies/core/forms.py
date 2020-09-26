@@ -41,6 +41,7 @@ class MovieForm(forms.ModelForm):
             Row(Column('genre'), Column('rating'), Column('released')),
             'director',
             'description',
+            'countries',
             Submit('submit', 'Submit'),
         )
 
