@@ -1,3 +1,0 @@
-WARNING:core.views:Invalid data provided.
-INFO:core.views:Succesfully added Hobbit
-INFO:core.views:Succesfully added Hobbit
